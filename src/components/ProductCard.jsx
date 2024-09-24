@@ -6,8 +6,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../redux/action/basketAction";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -28,7 +31,11 @@ const ProductCard = ({ product }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button
+          size="small"
+          color="primary"
+          onClick={() => dispatch(addToBasket(product))}
+        >
           ADD TO CARD
         </Button>
       </CardActions>

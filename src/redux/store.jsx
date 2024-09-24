@@ -1,9 +1,10 @@
 import { combineReducers, legacy_createStore as createStore } from "redux";
-import basketReducers from "./reducer/basketReducer";
+
 import { productReducer } from "./reducer/productReducer";
+import basketReducer from "./reducer/basketReducer";
 
 const topluReducer = combineReducers({
-  basketReducers: basketReducers,
+  basketReducer: basketReducer,
   productReducer: productReducer,
 });
 

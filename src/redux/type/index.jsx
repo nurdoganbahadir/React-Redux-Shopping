@@ -1,5 +1,5 @@
-export const ADD_PRODUCTS = "ADD";
-export const ADD_BASKET = "ADD";
+export const ADD_PRODUCTS = "ADD_PRODUCTS";
+export const ADD_TO_BASKET = "ADD_TO_BASKET";
 export const REMOVE_BASKET = "REMOVE";
 export const INCREASE_PRODUCT = "INCREASE";
 export const DICREASE_PRODUCT = "DICREASE";

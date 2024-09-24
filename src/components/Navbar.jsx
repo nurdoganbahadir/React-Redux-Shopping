@@ -4,11 +4,12 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { basket } = useSelector((state) => state.basketReducer);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -18,6 +19,7 @@ const Navbar = () => {
           </Typography>
           <Button color="inherit" variant="outlined">
             <LocalGroceryStoreIcon />
+            {basket.length}
           </Button>
         </Toolbar>
       </AppBar>
