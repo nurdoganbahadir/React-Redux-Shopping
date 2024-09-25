@@ -5,6 +5,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../redux/action/productAction";
 import { useSelector } from "react-redux";
+import { Grid2 } from "@mui/material";
 
 const Home = () => {
   const { products } = useSelector((state) => state.productReducer);
@@ -22,9 +23,11 @@ const Home = () => {
   return (
     <section>
       <Category />
-      {products?.map((product) => (
-        <ProductCard product={product} />
-      ))}
+      <Grid2 container spacing={2}>
+        {products?.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </Grid2>
     </section>
   );
 };

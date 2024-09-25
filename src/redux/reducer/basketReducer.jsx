@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET } from "../type";
+import { ADD_TO_BASKET, INCREASE_PRODUCT } from "../type";
 
 const initialState = {
   basket: [],
@@ -14,7 +14,17 @@ export default function basketReducer(state = initialState, action) {
       if (exists) {
         return state;
       }
-      return { basket: [...state.basket, action.payload] };
+      return { basket: [...state.basket, { ...action.payload, quantity: 1 }] };
+    case INCREASE_PRODUCT:
+      return {
+        ...state,
+        basket: state.basket.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        ),
+      };
+
     default:
       return state;
   }
