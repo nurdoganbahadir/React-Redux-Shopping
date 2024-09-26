@@ -7,7 +7,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
 import { Grid2 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { arttir, azalt } from "../redux/action/basketAction";
+import { arttir, azalt, remove } from "../redux/action/basketAction";
 
 const BasketCards = ({ item }) => {
   const { sayac } = useSelector((state) => state.basketReducer);
@@ -45,11 +45,16 @@ const BasketCards = ({ item }) => {
           <Button
             size="small"
             color="primary"
-            // onClick={() => dispatch(azalt(id))}
+            onClick={() => dispatch(azalt(item.id))}
           >
             -
           </Button>
-          <Button size="small" color="primary" variant="contained">
+          <Button
+            size="small"
+            color="primary"
+            variant="contained"
+            onClick={() => dispatch(remove(item.id))}
+          >
             REMOVE
           </Button>
         </CardActions>
