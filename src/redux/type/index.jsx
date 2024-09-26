@@ -4,3 +4,4 @@ export const REMOVE_BASKET = "REMOVE";
 export const INCREASE_PRODUCT = "INCREASE";
 export const DICREASE_PRODUCT = "DICREASE";
 export const EMPTY_BASKET = "EMPTY_BASKET";
+export const ADD_CATEGORY = "ADD_CATEGORY";
