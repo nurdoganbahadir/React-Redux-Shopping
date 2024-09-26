@@ -60,6 +60,7 @@ const BasketCards = ({ item }) => {
         </CardActions>
       </Card>
     </Grid2>
+    
   );
 };
 

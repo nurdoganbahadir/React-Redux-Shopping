@@ -3,6 +3,7 @@ import {
   DICREASE_PRODUCT,
   INCREASE_PRODUCT,
   REMOVE_BASKET,
+  EMPTY_BASKET,
 } from "../type";
 
 const initialState = {
@@ -45,6 +46,11 @@ export default function basketReducer(state = initialState, action) {
       return {
         ...state,
         basket: state.basket.filter((item) => item.id !== action.payload.id), // Ürünü sepetten çıkar
+      };
+    case EMPTY_BASKET:
+      return {
+        ...state,
+        basket: [],
       };
 
     default:

@@ -1,6 +1,7 @@
 import {
   ADD_TO_BASKET,
   DICREASE_PRODUCT,
+  EMPTY_BASKET,
   INCREASE_PRODUCT,
   REMOVE_BASKET,
 } from "../type";
@@ -24,3 +25,7 @@ export const remove = (id) => ({
   type: REMOVE_BASKET,
   payload: { id },
 });
+export const emptyBasket = () => ({
+  type: EMPTY_BASKET,
+});
+
