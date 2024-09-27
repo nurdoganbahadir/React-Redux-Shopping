@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { basket } = useSelector((state) => state.basketReducer);
@@ -16,7 +16,12 @@ const Navbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            component={Link}
+            sx={{ flexGrow: 1, textDecoration: "none", color: "inherit" }}
+            to="/"
+          >
             Bahadir Shopping
           </Typography>
           <Button
