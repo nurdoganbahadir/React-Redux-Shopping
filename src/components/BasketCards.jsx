@@ -6,32 +6,41 @@ import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
 import { Grid2 } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { arttir, azalt, remove } from "../redux/action/basketAction";
 
 const BasketCards = ({ item }) => {
-  const { sayac } = useSelector((state) => state.basketReducer);
   const dispatch = useDispatch();
   return (
-    <Grid2 size={3}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            height="140"
-            image={item.image}
-            alt="green iguana"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {item.title}
-            </Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              {item.price}$
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
+    <Grid2 xs={6} md={3}>
+      <Card sx={{ width: "200px", height: "370px" }}>
+        <CardMedia
+          component="img"
+          height="200"
+          image={item.image}
+          alt="green iguana"
+        />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="p"
+            component="div"
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: 1, // Bir satırda gösterilecek
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {item.title}
+          </Typography>
+          <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            {item.price}$
+          </Typography>
+        </CardContent>
+
+        <CardActions sx={{ display: "flex", justifyContent: "center" }}>
           <Button
             size="small"
             color="primary"
@@ -49,10 +58,13 @@ const BasketCards = ({ item }) => {
           >
             -
           </Button>
+        </CardActions>
+        <CardActions>
           <Button
             size="small"
             color="primary"
             variant="contained"
+            sx={{ backgroundColor: "red", margin: "auto" }}
             onClick={() => dispatch(remove(item.id))}
           >
             REMOVE
@@ -60,7 +72,6 @@ const BasketCards = ({ item }) => {
         </CardActions>
       </Card>
     </Grid2>
-    
   );
 };
 

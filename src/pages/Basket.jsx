@@ -14,7 +14,16 @@ const Basket = () => {
       {basket.length === 0 ? (
         <EmptyBasketTotal />
       ) : (
-        <Grid2 container spacing={2}>
+        <Grid2
+          container
+          spacing={1}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          my={4}
+        >
           {basket?.map((item) => (
             <BasketCards item={item} key={basket.id} />
           ))}
