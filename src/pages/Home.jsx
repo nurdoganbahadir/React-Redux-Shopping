@@ -3,13 +3,15 @@ import Category from "../components/Category";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setCategory, setProducts } from "../redux/action/productAction";
+import { setCategories, setCategory, setProducts } from "../redux/action/productAction";
 import { useSelector } from "react-redux";
 import { Button, ButtonGroup, Grid2 } from "@mui/material";
 
 const Home = () => {
   const { products } = useSelector((state) => state.productReducer);
-  const { category } = useSelector((state) => state.categoryReducer);
+  const { category, selectedCategory } = useSelector(
+    (state) => state.categoryReducer
+  );
 
   const dispatch = useDispatch();
 
@@ -27,9 +29,12 @@ const Home = () => {
     const { data } = await axios(
       "https://fakestoreapi.com/products/categories"
     );
-    dispatch(setCategory(data));
+    dispatch(setCategories(data));
   };
 
+  const filteredProducts = selectedCategory
+    ? products.filter((product) => product.category === selectedCategory)
+    : products;
   return (
     <section>
       <ButtonGroup
@@ -44,15 +49,15 @@ const Home = () => {
           borderRadius: 2, // Buton köşelerinin yumuşatılması
         }}
       >
-        <Button> All</Button>
-        {category?.map((category) => (
-          <Category category={category} />
+        <Button onClick={() => dispatch(setCategory(null))}> All</Button>
+        {category?.map((category, index) => (
+          <Category key={index} category={category} />
         ))}
       </ButtonGroup>
 
       <Grid2 container spacing={2}>
-        {products?.map((product) => (
-          <ProductCard product={product} />
+        {filteredProducts?.map((product, index) => (
+          <ProductCard key={index} product={product} />
         ))}
       </Grid2>
     </section>

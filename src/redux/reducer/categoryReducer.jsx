@@ -1,14 +1,16 @@
-import { ADD_CATEGORY } from "../type";
-
+import { SET_CATEGORIES, SET_CATEGORY } from "../type";
 
 const initialState = {
-  category: [],
+  categories: [],
+  selectedCategory: null,
 };
 
 export const categoryReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ADD_CATEGORY:
-      return { category: payload };
+    case SET_CATEGORIES:
+      return { ...state, category: payload };
+    case SET_CATEGORY:
+      return { ...state, selectedCategory: payload };
     default:
       return state;
   }
