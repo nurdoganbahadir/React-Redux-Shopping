@@ -25,7 +25,7 @@ export default function basketReducer(state = initialState, action) {
       return {
         ...state,
         basket: state.basket.map((item) =>
-          item.id === action.payload.id
+          item.id === action.payload
             ? { ...item, quantity: item.quantity + 1 }
             : item
         ),

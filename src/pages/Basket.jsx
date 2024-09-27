@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Box, Button, Grid2, Typography } from "@mui/material";
+import {  useSelector } from "react-redux";
+import { Grid2} from "@mui/material";
 import BasketCards from "../components/BasketCards";
 import EmptyBasketTotal from "../components/EmptyBasketTotal";
-import { emptyBasket } from "../redux/action/basketAction";
 import FiiledBasketTotal from "../components/FiiledBasketTotal";
 
 const Basket = () => {

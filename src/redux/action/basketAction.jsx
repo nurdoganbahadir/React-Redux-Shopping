@@ -13,7 +13,7 @@ export const addToBasket = (product) => ({
 
 export const arttir = (id) => ({
   type: INCREASE_PRODUCT,
-  payload: { id },
+  payload:  id ,
 });
 
 export const azalt = (id) => ({
