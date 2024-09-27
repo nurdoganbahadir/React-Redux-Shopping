@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Grid2 } from "@mui/material";
+import { Box, Button, Grid2, Typography } from "@mui/material";
 import BasketCards from "../components/BasketCards";
 import EmptyBasketTotal from "../components/EmptyBasketTotal";
 import { emptyBasket } from "../redux/action/basketAction";
+import FiiledBasketTotal from "../components/FiiledBasketTotal";
 
 const Basket = () => {
   const { basket } = useSelector((state) => state.basketReducer);
-  const dispatch = useDispatch();
+  
   console.log(basket);
 
   return (
@@ -29,13 +30,7 @@ const Basket = () => {
           ))}
         </Grid2>
       )}
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={() => dispatch(emptyBasket())}
-      >
-        Empty Cart
-      </Button>
+      <FiiledBasketTotal />
     </>
   );
 };
