@@ -3,7 +3,11 @@ import Category from "../components/Category";
 import ProductCard from "../components/ProductCard";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setCategories, setCategory, setProducts } from "../redux/action/productAction";
+import {
+  setCategories,
+  setCategory,
+  setProducts,
+} from "../redux/action/productAction";
 import { useSelector } from "react-redux";
 import { Button, ButtonGroup, Grid2 } from "@mui/material";
 
@@ -55,7 +59,11 @@ const Home = () => {
         ))}
       </ButtonGroup>
 
-      <Grid2 container spacing={2}>
+      <Grid2
+        container
+        spacing={1}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
         {filteredProducts?.map((product, index) => (
           <ProductCard key={index} product={product} />
         ))}
