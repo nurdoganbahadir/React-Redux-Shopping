@@ -56,7 +56,7 @@ const ProductCard = ({ product }) => {
             size="small"
             color="primary"
             variant="outlined"
-            sx={{ margin: "auto" }}
+            sx={{ margin: "auto", backgroundColor: "#e0e0e0" }}
             onClick={() => dispatch(addToBasket(product))}
           >
             BASKET

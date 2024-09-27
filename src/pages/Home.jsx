@@ -55,7 +55,7 @@ const Home = () => {
       >
         <Button
           color="secondary"
-          sx={{ fontSize: "10px" }}
+          sx={{ fontSize: "10px", backgroundColor: "#ffb300" }}
           onClick={() => dispatch(setCategory(null))}
         >
           {" "}

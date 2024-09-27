@@ -24,6 +24,7 @@ const FiiledBasketTotal = () => {
         variant="contained"
         color="secondary"
         onClick={() => dispatch(emptyBasket())}
+        sx={{ backgroundColor: "#00838f" }}
       >
         empty cart
       </Button>

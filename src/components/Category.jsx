@@ -8,7 +8,7 @@ const Category = ({ category }) => {
   return (
     <Button
       color="secondary"
-      sx={{ fontSize: "10px" }}
+      sx={{ fontSize: "10px", backgroundColor: "#ef6c00" }}
       onClick={() => dispatch(setCategory(category))}
     >
       {category}
