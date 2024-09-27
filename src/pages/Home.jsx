@@ -53,7 +53,14 @@ const Home = () => {
           borderRadius: 2, // Buton köşelerinin yumuşatılması
         }}
       >
-        <Button onClick={() => dispatch(setCategory(null))}> All</Button>
+        <Button
+          color="secondary"
+          sx={{ fontSize: "10px" }}
+          onClick={() => dispatch(setCategory(null))}
+        >
+          {" "}
+          All
+        </Button>
         {category?.map((category, index) => (
           <Category key={index} category={category} />
         ))}
